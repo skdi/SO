@@ -31,13 +31,17 @@ void sort_size(proceso3 &v){
 }
 void politica3(proceso3 A){
 	sort_llegada(A);
+	unsigned timer=0;
 	while(!A.empty()){
-		if(A[0].second.second>0){
-			A[0].second.second-=1;
-			cout<<A[0].first<<" size:"<<A[0].second.second<<endl;
-			sort_size(A);
+		timer++;
+		if(A[0].second.first<=timer){
+			if(A[0].second.second>0){
+				A[0].second.second-=1;
+				cout<<A[0].first<<" size:"<<A[0].second.second<<endl;
+				sort_size(A);
+			}
+			else A.erase(A.begin());
 		}
-		else A.erase(A.begin());
 	}
 
 	
