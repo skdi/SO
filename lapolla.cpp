@@ -153,22 +153,28 @@ vpar Politica5(vnodo pro,int quantum=2){
 }
 
 
+const char* tostr (int x)
+{
+    stringstream str;
+    str << x;
+    return str.str().c_str();
+}
+
 void pantalla_Inicio(int x,int y,char* nombre)
 {
-    settextstyle(SANS_SERIF_FONT,HORIZ_DIR,5);
+    settextstyle(SANS_SERIF_FONT,HORIZ_DIR,1);
     setcolor(WHITE);
     outtextxy(275+x,0+y,nombre);
-    char * cha;
-    setlinestyle(SOLID_LINE,4,4);
+    const char* cha;
+    setlinestyle(SOLID_LINE,4,3);
     line(100+x,420+y,100+x,60+y);
     line(100+x,420+y,600+x,420+y);
-    outtextxy(100+x,440+y,"0");
-    /*for(int i=0;i<=30;i++){
-        itoa(i,cha,10);
-    	outtextxy(100+x,440+y,i);
-    	x+=10;
-
-    }*/
+    settextstyle(SANS_SERIF_FONT,HORIZ_DIR,1);
+    for(int i=0;i<=40;i+=5){
+        cha=tostr(i);
+    	outtextxy(100+x,430+y,cha);
+    	x+=50;
+    }
     //Flechas
     /**line(90+x,70+y,100+x,60+y);
     line(110+x,70+y,100+x,60+y);
