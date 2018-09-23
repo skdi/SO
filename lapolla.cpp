@@ -209,12 +209,9 @@ void mostrar_politica(int x,int y,vnodo v,vpar vv)
 
 int main()
 {
-    initwindow(1800,900,"SO",50,50);
+    initwindow(1800,1000,"SO",0,0);
 
-    /**pantalla_Inicio(0,0,"puta");
-    pantalla_Inicio(900,0,"puta2");*/
-
-    vpar A;
+    vpar poli1,poli2,poli3,poli5;
     node a("P1",0,15);
 	node b("P2",2,12);
 	node c("P3",3,5);
@@ -224,12 +221,16 @@ int main()
 	v.push_back(b);
 	v.push_back(c);
 	v.push_back(d);
-	A=Politica5(v);
-    for(int i=0;i<A.size();i++)
-    {
-        cout<<A[i].second<<" "<<A[i].first<<endl;
-    }
-    mostrar_politica(0,0,v,A);
+	poli1=Politica1(v);
+	poli2=Politica2(v);
+	poli3=Politica3(v);
+	poli5=Politica5(v);
+
+    mostrar_politica(0,0,v,poli1,"FIFO");
+    mostrar_politica(450,0,v,poli2,"STF");
+    mostrar_politica(0,450,v,poli3,"SJF");
+    mostrar_politica(450,450,v,poli5,"ROUND ROBIN");
+
 
     getch();
     return 0;
