@@ -163,22 +163,18 @@ void pantalla_Inicio(int x,int y,char* nombre)
 {
     settextstyle(SANS_SERIF_FONT,HORIZ_DIR,1);
     setcolor(WHITE);
-    outtextxy(275+x,0+y,nombre);
+    outtextxy(275+x,30+y,nombre);
     const char* cha;
     setlinestyle(SOLID_LINE,4,3);
-    line(100+x,420+y,100+x,60+y);
-    line(100+x,420+y,600+x,420+y);
+    line(100+x,350+y,100+x,60+y);
+    line(100+x,350+y,520+x,350+y);
     settextstyle(SANS_SERIF_FONT,HORIZ_DIR,1);
     for(int i=0;i<=40;i+=5){
         cha=tostr(i);
-    	outtextxy(100+x,430+y,cha);
+    	outtextxy(100+x,360+y,cha);
     	x+=50;
     }
-    //Flechas
-    /**line(90+x,70+y,100+x,60+y);
-    line(110+x,70+y,100+x,60+y);
-    line(590+x,410+y,600+x,420+y);
-    line(590+x,430+y,600+x,420+y);*/
+
 
 }
 void mostrar_politica(int x,int y,vnodo v,vpar vv,char* name)
@@ -188,9 +184,9 @@ void mostrar_politica(int x,int y,vnodo v,vpar vv,char* name)
     int Ax,Ay,c=0,actual=x+100;
     for(int i=0;i<v.size();i++)
     {
-        outtextxy(70+x,380+y-(i*100),v[i].nombre);
+        outtextxy(70+x,310+y-(i*70),v[i].nombre);
         //v[i].x=70+x;
-        v[i].y=380+y-(i*100);
+        v[i].y=310+y-(i*70);
     }
     for(int i=0;i<vv.size();i++)
     {
@@ -208,7 +204,7 @@ void mostrar_politica(int x,int y,vnodo v,vpar vv,char* name)
 
 int main()
 {
-    initwindow(1800,1000,"SO",0,0);
+    initwindow(1920,1080,"SO",0,0);
 
     vpar poli1,poli2,poli3,poli5;
     node a("P1",0,15);
@@ -225,10 +221,10 @@ int main()
 	poli3=Politica3(v);
 	poli5=Politica5(v);
 
-    mostrar_politica(0,0,v,poli1,"FIFO");
-    mostrar_politica(450,0,v,poli2,"STF");
-    mostrar_politica(0,450,v,poli3,"SJF");
-    mostrar_politica(450,450,v,poli5,"ROUND ROBIN");
+    mostrar_politica(0,-20,v,poli1,"FIFO");
+    mostrar_politica(580,-20,v,poli2,"STF");
+    mostrar_politica(0,380,v,poli3,"SJF");
+    mostrar_politica(580,380,v,poli5,"ROUND ROBIN");
 
 
     getch();
