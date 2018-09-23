@@ -152,7 +152,6 @@ vpar Politica5(vnodo pro,int quantum=2){
 	return res;
 }
 
-
 const char* tostr (int x)
 {
     stringstream str;
@@ -182,9 +181,9 @@ void pantalla_Inicio(int x,int y,char* nombre)
     line(590+x,430+y,600+x,420+y);*/
 
 }
-void mostrar_politica(int x,int y,vnodo v,vpar vv)
+void mostrar_politica(int x,int y,vnodo v,vpar vv,char* name)
 {
-    pantalla_Inicio(x,y,"SJF");
+    pantalla_Inicio(x,y,name);
 
     int Ax,Ay,c=0,actual=x+100;
     for(int i=0;i<v.size();i++)
